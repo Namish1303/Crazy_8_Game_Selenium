@@ -2,6 +2,7 @@ package com.crazy.game;
 
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -45,7 +46,7 @@ public class Part1 extends Base{
     }
 
     @Test
-    void openBrowser()
+    void Row41()
     {
         List<String> temp = new ArrayList<>();
         temp = g.getCards();
@@ -54,7 +55,6 @@ public class Part1 extends Base{
         temp.set(7,"5D");
         g.setCards(temp);
 
-        System.out.println(g.getCards().get(1));
 
         //player1.navigate().to("http://localhost:3000");
         player1.navigate().to("http://localhost:8080");
@@ -76,23 +76,88 @@ public class Part1 extends Base{
         player3.findElement(By.id("connect")).click();
         player4.findElement(By.id("connect")).click();
 
-        
+
         player1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         player2.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         player3.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         player4.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
-        //player1.findElement(By.id("3C")).click();
+        player1.findElement(By.id("3C")).click();
+        player2.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        Assertions.assertTrue(player2.findElement(By.id("5D")).isEnabled());
+
         g.reset();
-       // player2.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        //Boolean check = player2.findElement(By.id("5D")).isEnabled();
+
+
+    }
+
+    @Test
+    void Row42()
+    {
+        List<String> temp = new ArrayList<>();
+        temp = g.getCards();
+        temp.set(0,"AH");
+        temp.set(16,"7H");
+        temp.set(20,"3H");
+        temp.set(12,"8H");
+        g.setCards(temp);
+
+
+        player1.navigate().to("http://localhost:8080");
+        //player1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        player2.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        player3.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        player4.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+
+        player2.navigate().to("http://localhost:8080");
+
+        player1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        //player2.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        player3.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        player4.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+
+        player3.navigate().to("http://localhost:8080");
+        player1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        player2.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        //player3.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        player4.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+
+        player4.navigate().to("http://localhost:8080");
 
 
 
-       // Assertions.assertTrue(check);
+        player1.findElement(By.id("username")).sendKeys("player1");
+        player2.findElement(By.id("username")).sendKeys("player2");
+        player3.findElement(By.id("username")).sendKeys("player3");
+        player4.findElement(By.id("username")).sendKeys("player4");
 
 
 
+        player1.findElement(By.id("connect")).click();
+        player2.findElement(By.id("connect")).click();
+        player3.findElement(By.id("connect")).click();
+        player4.findElement(By.id("connect")).click();
+
+
+        player1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        player2.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        player3.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        player4.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+
+        player1.findElement(By.id("AH")).click();
+        player4.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        Assertions.assertTrue(player4.findElement(By.id("7H")).isEnabled());
+
+        player4.findElement(By.id("7H")).click();
+        Assertions.assertTrue(player3.findElement(By.id("8H")).isEnabled());
+
+
+        g.reset();
+    }
+
+    @Test
+    public void Row44()
+    {
 
     }
 

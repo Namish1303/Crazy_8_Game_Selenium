@@ -40,10 +40,11 @@ public class game {
         {
             cards.remove(0);
         }
+        assignCards();
         users.clear();
         current =0;
         direction=1;
-        userNum =0;
+        userNum=0;
         round=0;
         playerC.clear();
         userNames.clear();

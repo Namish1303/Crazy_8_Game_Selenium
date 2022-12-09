@@ -207,7 +207,7 @@ const CrazyEight =() =>{
       <div> 
          {gameStart?
         <div>
-          <p className="Turn">Turn:  {turn}</p>
+          <p className="Turn" id="turn">Turn:  {turn}</p>
           <span>&nbsp;</span>
           <ul>
             {Object.keys(players).map((value,index)=>
