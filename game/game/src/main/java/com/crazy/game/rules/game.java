@@ -34,6 +34,9 @@ public class game {
         round=1;
     }
 
+    public void setCommon(String common) {
+        this.common = common;
+    }
 
     public void assignCards(){
         cards = new ArrayList<>();

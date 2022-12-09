@@ -10,3 +10,10 @@ Feature: Unit Tests
     Given game is initialised
     When list is "1S" "2S" "8D" "QC" "KD"
     Then the score is 73
+
+
+    Scenario: Check valid move
+      Given game is initialised
+      When common card is "1S"
+      And and player plays "2S"
+      Then valid is true
