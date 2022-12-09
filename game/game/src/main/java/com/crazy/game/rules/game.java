@@ -58,7 +58,7 @@ public class game {
     public Message manage(Message message)
     {
        //refresh messages before every chance
-        refreshMessages();
+       /* refreshMessages();
 
 
         //set user for first 3
@@ -310,7 +310,7 @@ public class game {
 
 
 
-
+*/
 
         return message;
     }
@@ -320,6 +320,8 @@ public class game {
     {
         return message;
     }
+
+
 
 
     public void calculateScore()

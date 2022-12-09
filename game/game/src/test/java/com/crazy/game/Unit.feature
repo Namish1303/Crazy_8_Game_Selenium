@@ -24,3 +24,9 @@ Feature: Unit Tests
     When player 1 plays
     And direction is left
     Then player 2 plays now
+
+  Scenario: Player moves
+    Given game is initialised
+    When player 0 plays
+    And direction is right
+    Then player 3 plays

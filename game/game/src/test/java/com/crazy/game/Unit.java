@@ -75,4 +75,9 @@ public class Unit {
     public void playerPlays(int arg0) {
         g.setCurrent(arg0);
     }
+
+    @And("direction is right")
+    public void directionIsRight() {
+        g.setDirection(-1);
+    }
 }
