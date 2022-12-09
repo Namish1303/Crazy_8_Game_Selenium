@@ -27,10 +27,9 @@ public class Part1 {
     void openBrowser()
     {
 
-        webDriver.navigate().to("localhost:3000");
-        WebElement elem;
-        elem = new WebDriverWait(webDriver,new Duration).un
-        //webDriver.findElement(By.id("username"));
+        webDriver.navigate().to("http://localhost:8080");
+        //connect.click();
+        webDriver.findElement(By.className("connect"));
         //connect.click();
 
 
