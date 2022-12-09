@@ -374,6 +374,13 @@ public class game {
         return message;
     }
 
+    public void refreshMessages()
+    {
+        for(int i=0;i<userNames.size();i++)
+        {
+            messages.put(userNames.get(i),"");
+        }
+    }
     public int getCurrent() {
         return current;
     }
