@@ -19,4 +19,8 @@ Feature: Unit Tests
     Then valid is true
 
 
-
+  Scenario: Player moves
+    Given game is initialised
+    When player 1 plays
+    And direction is left
+    Then player 2 plays now
