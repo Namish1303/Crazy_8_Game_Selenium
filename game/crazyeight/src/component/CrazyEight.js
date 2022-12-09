@@ -218,8 +218,8 @@ const CrazyEight =() =>{
           <button className="common">{common}</button>   <p>Cards left in deck: {decksize}</p>
           {draw?
           <div>
-            <button onClick={sendDraw} className="drawButton">Draw</button>
-            </div>:<div><button onClick={sendDraw} disabled>Draw</button></div>}
+            <button onClick={sendDraw} className="drawButton" id="draw">Draw</button>
+            </div>:<div><button onClick={sendDraw} id="draw" disabled>Draw</button></div>}
           {suite && isTurn?
           <div>
             &nbsp;&nbsp;
@@ -243,7 +243,7 @@ const CrazyEight =() =>{
             :
             <div>
             {cards.map((card,index) =>
-              <button className="hand" id="1" disabled> {card} </button> 
+              <button className="hand" id={card} disabled> {card} </button> 
             
               )}
               </div>
@@ -260,7 +260,7 @@ const CrazyEight =() =>{
 
           </ul>
           <h4>Start next round ?</h4>
-          <button className="round" onClick={readyRound}>Start</button>
+          <button className="round" onClick={readyRound} id="start">Start</button>
           </div>
         :
           <div>

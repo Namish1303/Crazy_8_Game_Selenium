@@ -108,6 +108,7 @@ public class game {
             message.setUsers(users);
             message.setCardsLeft(cards.size());
             message.setMessages(messages);
+            isDraw();
             message.setDraw(draw);
         }
 
@@ -312,6 +313,7 @@ public class game {
                 message.setCards(playerC);
                 message.setCardsLeft(cards.size());
                 message.setCardPlayed("");
+                isDraw();
                 message.setDraw(draw);
             }
         }
@@ -521,7 +523,7 @@ public class game {
             draw.put(userNames.get(i),false);
         }
 
-        draw.put(userNames.get(current),checking);
+        draw.put(userNames.get(current),true);
     }
 
     public String getCard()
