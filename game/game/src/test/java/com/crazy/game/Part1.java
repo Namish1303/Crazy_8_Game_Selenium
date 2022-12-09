@@ -2,6 +2,7 @@ package com.crazy.game;
 
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,10 +11,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -38,11 +42,7 @@ public class Part1 extends Base{
     @BeforeEach
     void start()
     {
-        WebDriverManager.chromedriver().setup();
-        player1 = new ChromeDriver();
-        player2 = new ChromeDriver();
-        player3 = new ChromeDriver();
-        player4 = new ChromeDriver();
+
     }
 
     @Test
@@ -57,33 +57,31 @@ public class Part1 extends Base{
 
 
         //player1.navigate().to("http://localhost:3000");
+        WebDriverManager.chromedriver().setup();
+        player1 = new ChromeDriver();
         player1.navigate().to("http://localhost:8080");
-        player2.navigate().to("http://localhost:8080");
-        player3.navigate().to("http://localhost:8080");
-        player4.navigate().to("http://localhost:8080");
-
-
-
         player1.findElement(By.id("username")).sendKeys("player1");
-        player2.findElement(By.id("username")).sendKeys("player2");
-        player3.findElement(By.id("username")).sendKeys("player3");
-        player4.findElement(By.id("username")).sendKeys("player4");
-
-
-
         player1.findElement(By.id("connect")).click();
+
+
+        player2 = new ChromeDriver();
+        player2.navigate().to("http://localhost:8080");
+        player2.findElement(By.id("username")).sendKeys("player2");
         player2.findElement(By.id("connect")).click();
+
+        player3 = new ChromeDriver();
+        player3.navigate().to("http://localhost:8080");
+        player3.findElement(By.id("username")).sendKeys("player3");
         player3.findElement(By.id("connect")).click();
+
+        player4 = new ChromeDriver();
+        player4.navigate().to("http://localhost:8080");
+        player4.findElement(By.id("username")).sendKeys("player4");
         player4.findElement(By.id("connect")).click();
 
-
-        player1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        player2.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        player3.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        player4.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-
+        WebDriverWait wait = new WebDriverWait(player1, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("3C")));
         player1.findElement(By.id("3C")).click();
-        player2.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         Assertions.assertTrue(player2.findElement(By.id("5D")).isEnabled());
 
         g.reset();
@@ -103,49 +101,31 @@ public class Part1 extends Base{
         g.setCards(temp);
 
 
+        WebDriverManager.chromedriver().setup();
+        player1 = new ChromeDriver();
         player1.navigate().to("http://localhost:8080");
-        //player1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        player2.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        player3.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        player4.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-
-        player2.navigate().to("http://localhost:8080");
-
-        player1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        //player2.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        player3.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        player4.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-
-        player3.navigate().to("http://localhost:8080");
-        player1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        player2.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        //player3.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        player4.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-
-        player4.navigate().to("http://localhost:8080");
-
-
-
         player1.findElement(By.id("username")).sendKeys("player1");
-        player2.findElement(By.id("username")).sendKeys("player2");
-        player3.findElement(By.id("username")).sendKeys("player3");
-        player4.findElement(By.id("username")).sendKeys("player4");
-
-
-
         player1.findElement(By.id("connect")).click();
+
+
+        player2 = new ChromeDriver();
+        player2.navigate().to("http://localhost:8080");
+        player2.findElement(By.id("username")).sendKeys("player2");
         player2.findElement(By.id("connect")).click();
+
+        player3 = new ChromeDriver();
+        player3.navigate().to("http://localhost:8080");
+        player3.findElement(By.id("username")).sendKeys("player3");
         player3.findElement(By.id("connect")).click();
+
+        player4 = new ChromeDriver();
+        player4.navigate().to("http://localhost:8080");
+        player4.findElement(By.id("username")).sendKeys("player4");
         player4.findElement(By.id("connect")).click();
 
-
-        player1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        player2.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        player3.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        player4.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-
+        WebDriverWait wait = new WebDriverWait(player1, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("AH")));
         player1.findElement(By.id("AH")).click();
-        player4.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         Assertions.assertTrue(player4.findElement(By.id("7H")).isEnabled());
 
         player4.findElement(By.id("7H")).click();
@@ -158,11 +138,50 @@ public class Part1 extends Base{
     @Test
     public void Row44()
     {
+        List<String> temp = new ArrayList<>();
+        temp = g.getCards();
+        temp.set(0,"QC");
+        temp.set(6,"9H");
+        temp.set(16,"7H");
+        temp.set(20,"AC");
+        temp.set(12,"8H");
+        g.setCards(temp);
 
+
+        WebDriverManager.chromedriver().setup();
+        player1 = new ChromeDriver();
+        player1.navigate().to("http://localhost:8080");
+        player1.findElement(By.id("username")).sendKeys("player1");
+        player1.findElement(By.id("connect")).click();
+
+
+        player2 = new ChromeDriver();
+        player2.navigate().to("http://localhost:8080");
+        player2.findElement(By.id("username")).sendKeys("player2");
+        player2.findElement(By.id("connect")).click();
+
+        player3 = new ChromeDriver();
+        player3.navigate().to("http://localhost:8080");
+        player3.findElement(By.id("username")).sendKeys("player3");
+        player3.findElement(By.id("connect")).click();
+
+        player4 = new ChromeDriver();
+        player4.navigate().to("http://localhost:8080");
+        player4.findElement(By.id("username")).sendKeys("player4");
+        player4.findElement(By.id("connect")).click();
+
+        WebDriverWait wait = new WebDriverWait(player1, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("QC")));
+
+
+        player1.findElement(By.id("QC")).click();
+        Assertions.assertFalse(player2.findElement(By.id("9H")).isEnabled());
+        Assertions.assertTrue(player3.findElement(By.id("8H")).isEnabled());
+        g.reset();
     }
 
 
-
+    @AfterEach
     void end()
     {
         player1.close();
