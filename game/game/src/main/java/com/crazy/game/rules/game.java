@@ -392,7 +392,16 @@ public class game {
     }
 
     public void increaseCurrent(){
+        current +=direction;
+        if(current>=4)
+        {
+            current =0;
+        }
 
+        if(current<0)
+        {
+            current =3;
+        }
     }
 
 }
