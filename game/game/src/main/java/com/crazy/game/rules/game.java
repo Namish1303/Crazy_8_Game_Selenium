@@ -301,4 +301,11 @@ public class game {
 
         return message;
     }
+
+
+    public Message managePrivate(Message message)
+    {
+        return message;
+    }
+
 }
