@@ -492,4 +492,48 @@ public class game {
         return null;
     }
 
+    public boolean isRoundOver()
+    {
+        if(playerC.size()==0)
+        {
+            return false;
+        }
+        for(int i=0;i<userNames.size();i++)
+        {
+            if(playerC.get(userNames.get(i)).size() == 0)
+            {
+                return true;
+            }
+        }
+
+        if(cards.size()==0)
+        {
+            List<String> temp = new ArrayList<>();
+            temp = playerC.get(userNames.get(current));
+            Boolean over;
+            for(int i=0;i<temp.size();i++)
+            {
+                if(temp.get(i).charAt(0)=='8')
+                {
+                    return false;
+                }
+                if(temp.get(i).charAt(0) == common.charAt(0))
+                {
+                    return false;
+                }
+                else if(temp.get(i).charAt(1) == common.charAt(1))
+                {
+                    return false;
+                }
+            }
+        }
+        else
+        {
+            return false;
+        }
+
+
+        return true;
+    }
+
 }
