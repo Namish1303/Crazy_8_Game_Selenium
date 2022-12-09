@@ -223,7 +223,7 @@ const CrazyEight =() =>{
           {suite && isTurn?
           <div>
             &nbsp;&nbsp;
-          <select onChange={selectingSuite}>
+          <select onChange={selectingSuite} id="suiteSelect">
             <option value="none">None</option>
             <option value="H">Hearts</option>
             <option value="S">Spades</option>
