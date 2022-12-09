@@ -5,7 +5,7 @@ import com.crazy.game.Message;
 import java.util.*;
 
 public class game {
-    List<String> cards = new ArrayList<>();
+    public List<String> cards = new ArrayList<>();
     Map<String,Integer> users = new HashMap<>();
     int current;
     int direction;
@@ -35,7 +35,10 @@ public class game {
     }
 
 
+    public void assignCards()
+    {
 
+    }
 
 
 
