@@ -12,8 +12,11 @@ Feature: Unit Tests
     Then the score is 73
 
 
-    Scenario: Check valid move
-      Given game is initialised
-      When common card is "1S"
-      And and player plays "2S"
-      Then valid is true
+  Scenario: Check valid move
+    Given game is initialised
+    When common card is "1S"
+    And and player plays "2S"
+    Then valid is true
+
+
+

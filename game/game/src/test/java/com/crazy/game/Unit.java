@@ -56,6 +56,23 @@ public class Unit {
 
     @Then("valid is true")
     public void validIsTrue() {
-        Assertions.assertTrue(isMoveValid(play));
+        Assertions.assertTrue(g.isMoveValid(play));
+    }
+
+
+    @When("direction is left")
+    public void directionIsLeft() {
+        g.setDirection(1);
+    }
+
+    @Then("player {int} plays now")
+    public void playerPlaysNow(int arg0) {
+        g.increaseCurrent();
+        Assertions.assertEquals(arg0,g.getCurrent());
+    }
+
+    @Given("player {int} plays")
+    public void playerPlays(int arg0) {
+        g.setCurrent(arg0);
     }
 }

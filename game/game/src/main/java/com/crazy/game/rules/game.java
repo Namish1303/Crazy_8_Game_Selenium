@@ -357,4 +357,42 @@ public class game {
         return score;
     }
 
+
+    public int getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(int current) {
+        this.current = current;
+    }
+
+    public int getDirection() {
+        return direction;
+    }
+
+    public void setDirection(int direction) {
+        this.direction = direction;
+    }
+
+    public boolean isMoveValid(String check)
+    {
+        if(check.charAt(0) == '8')
+        {
+            return true;
+        }
+        if(check.charAt(0) == common.charAt(0))
+        {
+            return true;
+        }
+        else if (check.charAt(1) == common.charAt(1))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void increaseCurrent(){
+
+    }
+
 }
