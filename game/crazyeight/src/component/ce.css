@@ -1,0 +1,75 @@
+body{
+    background-color: rgb(225, 182, 101);
+}
+
+div{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+}
+
+li{
+    padding: 5px;
+}
+
+h3{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(3, 3, 43);
+    margin-bottom: 70px;
+}
+.common{
+    height: 200px;
+    width: 120px;
+    color: black;
+    background-color: rgb(245, 116, 116);
+    font-size: larger;
+    margin-top: 50px;
+    margin-left: 225px;
+}
+
+
+
+
+.hand:hover:not([disabled])
+{
+    opacity: 3;
+    background-color: rgb(248, 67, 67);
+
+}
+
+
+
+
+.hand{
+    height: 200px;
+    width: 120px;
+    color: black;
+    background-color: rgb(245, 116, 116);
+    margin: 10px;
+    font-size: larger;
+    margin-top: 40px;
+    margin-left: 30px;
+    
+}
+
+.serverMessage{
+    margin-left: 100px;
+}
+
+select{
+
+    background-color: wheat;
+    color: black;
+    font-size: large;
+}
+
+
+.Turn{
+    color: rgb(11, 11, 48);
+    font-size: larger;
+}
+
+.drawButton{
+    background-color: brown;
+    color: wheat;
+    padding: 10px;
+}
