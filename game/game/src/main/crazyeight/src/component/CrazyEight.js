@@ -256,7 +256,7 @@ const CrazyEight =() =>{
           <div>
           <ul>
             {Object.keys(players).map((value,index)=>
-            <li>{value} : {players[value]}</li>)}
+            <li id={value}>{value} : {players[value]}</li>)}
 
           </ul>
           <h4>Start next round ?</h4>
@@ -277,11 +277,11 @@ const CrazyEight =() =>{
       <div>
       {gameOver?
       <div>
-      <h1>GAME OVER!!!</h1>
+      <h1 id="gameOver">GAME OVER!!!</h1>
       
       <ul>
           {Object.keys(players).map((value,index)=>
-          <li>{value} : {players[value]}</li>)}
+          <li id={value}>{value} : {players[value]}</li>)}
 
           </ul>
         <h3> Winner:  {winner}</h3>

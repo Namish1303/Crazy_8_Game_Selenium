@@ -94,6 +94,9 @@ public class game {
     }
 
 
+    public void setPlayerC(Map<String, List<String>> playerC) {
+        this.playerC = playerC;
+    }
 
     public Message manage(Message message)
     {
@@ -278,12 +281,27 @@ public class game {
 
         else if(message.getStatus().equals("DRAW"))
         {
+            isDraw();
             if(draws[current]<3) {
                 List<String> tempp = new ArrayList<>();
 
                 tempp = playerC.get(userNames.get(current));
+                String tempCard;
+                tempCard = getCard();
 
-                tempp.add(getCard());
+                if(tempCard.charAt(0) == common.charAt(0))
+                {
+                    draw.put(userNames.get(current),false);
+                }
+                else if(tempCard.charAt(1) == common.charAt(1))
+                {
+                    draw.put(userNames.get(current),false);
+                }
+                else if(tempCard.charAt(0) == '8')
+                {
+                    draw.put(userNames.get(current),false);
+                }
+                tempp.add(tempCard);
                 playerC.put(userNames.get(current), tempp);
                 draws[current] += 1;
             }
@@ -303,7 +321,7 @@ public class game {
                 message.setCards(playerC);
                 message.setCardPlayed("");
                 message.setMessages(messages);
-                isDraw();
+
                 /*String tempCard;
                 tempCard = playerC.get(userNames.get(current)).get(playerC.get(userNames.get(current)).size() - 1);
                 if(tempCard.charAt(0) == common.charAt(0))
