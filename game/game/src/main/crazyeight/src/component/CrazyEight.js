@@ -215,7 +215,7 @@ const CrazyEight =() =>{
 
           </ul> <p className="serverMessage">Message from Server: {systemMessage}</p>
           <span>&nbsp;&nbsp;</span>
-          <button className="common">{common}</button>   <p>Cards left in deck: {decksize}</p>
+          <button className="common" id="common">{common}</button>   <p>Cards left in deck: {decksize}</p>
           {draw?
           <div>
             <button onClick={sendDraw} className="drawButton" id="draw">Draw</button>
