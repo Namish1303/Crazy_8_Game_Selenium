@@ -321,6 +321,34 @@ public class game {
         return message;
     }
 
+    public String gameOver()
+    {
+        int temp = 200;
+        String n = "";
+        boolean check = false;
+        for(int i=0;i<userNames.size();i++)
+        {
+            if(users.get(userNames.get(i)) > 100)
+            {
+                check = true;
+            }
+            if(users.get(userNames.get(i)) < temp)
+            {
+                temp = users.get(userNames.get(i));
+                n = userNames.get(i);
+            }
+        }
+
+        if(check)
+        {
+            return n;
+        }
+        else
+        {
+            return "none";
+        }
+
+    }
 
     public void removeUserCard(String name, String card)
     {
