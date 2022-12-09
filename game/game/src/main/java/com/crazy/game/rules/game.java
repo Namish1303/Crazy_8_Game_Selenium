@@ -310,7 +310,7 @@ public class game {
 
 
 
-        */
+
 
         return message;
     }
@@ -367,6 +367,12 @@ public class game {
         return score;
     }
 
+    public Message playedEight (Message message)
+    {
+        message.setStatus("SELECT");
+        message.setPlayerTurn(userNames.get(current));
+        return message;
+    }
 
     public int getCurrent() {
         return current;
