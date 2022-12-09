@@ -129,6 +129,18 @@ public class game {
                 if(message.getCardPlayed().charAt(0) == 'A')
                 {
                     direction *=-1;
+                    for(int i=0;i<userNames.size();i++)
+                    {
+                        if(direction == -1)
+                        {
+                            messages.put(userNames.get(i),"Direction of game changed to RIGHT");
+                        }
+                        else
+                        {
+                            messages.put(userNames.get(i),"Direction of game changed to LEFT");
+                        }
+
+                    }
                 }
                 draws[current] = 0;
                 increaseCurrent();
