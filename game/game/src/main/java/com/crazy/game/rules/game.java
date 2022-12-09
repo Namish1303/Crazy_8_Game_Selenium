@@ -318,4 +318,10 @@ public class game {
         return message;
     }
 
+
+    public int listScore(List<String> st,int sc)
+    {
+        return 0;
+    }
+
 }
