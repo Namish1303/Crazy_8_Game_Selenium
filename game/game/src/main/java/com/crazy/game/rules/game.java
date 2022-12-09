@@ -381,6 +381,8 @@ public class game {
             messages.put(userNames.get(i),"");
         }
     }
+
+
     public int getCurrent() {
         return current;
     }
@@ -425,6 +427,39 @@ public class game {
         {
             current =3;
         }
+    }
+
+    public void isDraw()
+    {
+        String name;
+        name = userNames.get(current);
+
+        List<String> temp2 = new ArrayList<>();
+        temp2 = playerC.get(name);
+        boolean checking = true;
+        for(int i=0;i<temp2.size();i++)
+        {
+            if(temp2.get(i).charAt(0)=='8')
+            {
+                checking = false;
+            }
+            if(temp2.get(i).charAt(0) == common.charAt(0))
+            {
+                checking = false;
+            }
+            else if(temp2.get(i).charAt(1) == common.charAt(1))
+            {
+                checking = false;
+            }
+        }
+
+
+        for(int i=0;i<userNames.size();i++)
+        {
+            draw.put(userNames.get(i),false);
+        }
+
+        draw.put(userNames.get(current),checking);
     }
 
 }
