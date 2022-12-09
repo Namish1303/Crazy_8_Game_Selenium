@@ -321,7 +321,37 @@ public class game {
 
     public int listScore(List<String> st,int sc)
     {
-        return 0;
+        int score =sc;
+
+        if(st.size() == 0)
+        {
+            return score;
+        }
+
+
+        for(int i=0;i<st.size();i++)
+        {
+            char a = st.get(i).charAt(0);
+
+            if(a=='T' || a =='Q' || a=='K' || a=='J')
+            {
+                score +=10;
+            }
+            else if(a == '8')
+            {
+                score +=50;
+            }
+            else if(a == 'A')
+            {
+                score +=1;
+            }
+            else
+            {
+                score += Integer.parseInt(String.valueOf(a));
+            }
+        }
+
+        return score;
     }
 
 }
