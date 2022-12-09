@@ -35,16 +35,26 @@ public class game {
     }
 
 
-    public void assignCards()
-    {
+    public void assignCards(){
+        cards = new ArrayList<>();
+        String[] rank = {"A","2","3","4","5","6","7","8","9","T","J","Q","K"};
+        String[] suite = {"S","C","H","D"};
 
+
+        for(int i=0;i< rank.length;i++)
+        {
+            for(int j=0;j<suite.length;j++)
+            {
+                cards.add(rank[i]+suite[j]);
+            }
+        }
     }
 
 
 
     public Message manage(Message message)
     {
-        //refresh messages before every chance
+       /* //refresh messages before every chance
         refreshMessages();
 
 
@@ -297,7 +307,7 @@ public class game {
 
 
 
-
+        */
 
         return message;
     }
