@@ -57,7 +57,7 @@ public class game {
 
     public Message manage(Message message)
     {
-       /* //refresh messages before every chance
+       //refresh messages before every chance
         refreshMessages();
 
 
@@ -319,6 +319,16 @@ public class game {
     public Message managePrivate(Message message)
     {
         return message;
+    }
+
+
+    public void calculateScore()
+    {
+        for(int i=0;i<userNames.size();i++)
+        {
+            String name = userNames.get(i);
+            users.put(name,listScore(playerC.get(name),users.get(name)));
+        }
     }
 
 
