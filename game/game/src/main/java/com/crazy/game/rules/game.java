@@ -34,6 +34,30 @@ public class game {
         this.cards = cards;
     }
 
+    public void reset()
+    {
+        for(int i=0;i<cards.size();i++)
+        {
+            cards.remove(0);
+        }
+        users.clear();
+        current =0;
+        direction=1;
+        userNum =0;
+        round=0;
+        playerC.clear();
+        userNames.clear();
+        common="";
+        for(int i=0;i<4;i++)
+        {
+            draws[i] = 0;
+            scores[i] =0;
+        }
+        messages.clear();
+        draw.clear();
+    }
+
+
     public game()
     {
         assignCards();

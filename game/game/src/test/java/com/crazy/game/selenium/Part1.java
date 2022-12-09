@@ -3,23 +3,24 @@ package com.crazy.game.selenium;
 
 import com.crazy.game.rules.game;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ByIdOrName;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 
-@SpringBootTest
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+
 @DirtiesContext
 public class Part1 extends Base{
 
@@ -49,29 +50,68 @@ public class Part1 extends Base{
     @Test
     void openBrowser()
     {
-        g.setCommon("TH");
-        System.out.println(g.getCommon());
-        player1.navigate().to("http://localhost:3000");
+        List<String> temp = new ArrayList<>();
+        temp = g.getCards();
+        temp.set(0,"4C");
+        temp.set(1,"3C");
+        temp.set(7,"5D");
+        g.setCards(temp);
+
+        System.out.println(g.getCards().get(1));
+
+        //player1.navigate().to("http://localhost:3000");
+        player2.navigate().to("http://localhost:8080");
+        player3.navigate().to("http://localhost:8080");
+        player4.navigate().to("http://localhost:8080");
+
+        player1.get("http://localhost:8080");
+
         player1.findElement(By.id("username")).sendKeys("player1");
-        player1.findElement(By.id("connect")).click();
-
-        player2.navigate().to("http://localhost:3000");
         player2.findElement(By.id("username")).sendKeys("player2");
-        player2.findElement(By.id("connect")).click();
-
-        player3.navigate().to("http://localhost:3000");
         player3.findElement(By.id("username")).sendKeys("player3");
-        player3.findElement(By.id("connect")).click();
-
-        player4.navigate().to("http://localhost:3000");
         player4.findElement(By.id("username")).sendKeys("player4");
+
+
+
+        player1.findElement(By.id("connect")).click();
+        //player1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+
+
+
+        player2.findElement(By.id("connect")).click();
+        //player2.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+
+
+
+        player3.findElement(By.id("connect")).click();
+        //player3.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+
+
+
         player4.findElement(By.id("connect")).click();
+        //player4.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+
+        player1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        player2.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        player3.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        player4.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+
+        //player1.findElement(By.id("3C")).click();
+        g.reset();
+       // player2.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        //Boolean check = player2.findElement(By.id("5D")).isEnabled();
+
+
+
+       // Assertions.assertTrue(check);
+
+
 
 
     }
 
 
-    @AfterEach
+
     void end()
     {
         player1.close();
