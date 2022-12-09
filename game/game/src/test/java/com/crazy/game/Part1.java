@@ -377,7 +377,47 @@ public class Part1 extends Base{
     }
 
 
-    
+    @Test
+    public void Row52()
+    {
+        List<String> temp = new ArrayList<>();
+        temp = g.getCards();
+        temp.set(0,"7C");
+        temp.set(20,"KC");
+        temp.set(6,"9C");
+        g.setCards(temp);
+
+
+        WebDriverManager.chromedriver().setup();
+        player1 = new ChromeDriver();
+        player1.navigate().to("http://localhost:8080");
+        player1.findElement(By.id("username")).sendKeys("player1");
+        player1.findElement(By.id("connect")).click();
+
+
+        player2 = new ChromeDriver();
+        player2.navigate().to("http://localhost:8080");
+        player2.findElement(By.id("username")).sendKeys("player2");
+        player2.findElement(By.id("connect")).click();
+
+        player3 = new ChromeDriver();
+        player3.navigate().to("http://localhost:8080");
+        player3.findElement(By.id("username")).sendKeys("player3");
+        player3.findElement(By.id("connect")).click();
+
+        player4 = new ChromeDriver();
+        player4.navigate().to("http://localhost:8080");
+        player4.findElement(By.id("username")).sendKeys("player4");
+        player4.findElement(By.id("connect")).click();
+
+        WebDriverWait wait = new WebDriverWait(player1, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("7C")));
+
+        player1.findElement(By.id("7C")).click();
+        Assertions.assertEquals(player2.findElement(By.id("common")).getText(),"7C");
+        Assertions.assertTrue(player2.findElement(By.id("9C")).isEnabled());
+    }
+
 
 
     @AfterEach
