@@ -58,7 +58,7 @@ public class game {
     public Message manage(Message message)
     {
        //refresh messages before every chance
-       /* refreshMessages();
+        refreshMessages();
 
 
         //set user for first 3
@@ -310,7 +310,7 @@ public class game {
 
 
 
-*/
+
 
         return message;
     }
@@ -482,6 +482,14 @@ public class game {
         }
 
         draw.put(userNames.get(current),checking);
+    }
+
+    public String getCard()
+    {
+        if(cards.size()>=1) {
+            return cards.remove(0);
+        }
+        return null;
     }
 
 }
