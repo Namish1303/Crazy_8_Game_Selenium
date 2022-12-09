@@ -298,7 +298,7 @@ const CrazyEight =() =>{
         onChange={handleUsername}
         margin = "normal"
         />
-        <button type="button" onClick={registerUser}>
+        <button type="button" id="connect" onClick={registerUser}>
           connect
         </button>
       </div>
