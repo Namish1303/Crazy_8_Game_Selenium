@@ -11,7 +11,10 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class GameController {
-    game g = new game();
+    @Autowired
+    game g;
+
+
 
     @MessageMapping("/message")
     @SendTo("/chatroom/public")

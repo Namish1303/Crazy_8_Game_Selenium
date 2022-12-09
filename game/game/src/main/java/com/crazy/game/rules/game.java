@@ -1,9 +1,11 @@
 package com.crazy.game.rules;
 
 import com.crazy.game.Message;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 
+@Component
 public class game {
     public List<String> cards = new ArrayList<>();
     Map<String,Integer> users = new HashMap<>();
@@ -19,6 +21,19 @@ public class game {
     int[] scores = new int[4];
     Map<String,String> messages = new HashMap<>();
     Map<String,Boolean> draw = new HashMap<>();
+
+    public String getCommon() {
+        return common;
+    }
+
+    public List<String> getCards() {
+        return cards;
+    }
+
+    public void setCards(List<String> cards) {
+        this.cards = cards;
+    }
+
     public game()
     {
         assignCards();
@@ -242,6 +257,7 @@ public class game {
                 List<String> tempp = new ArrayList<>();
 
                 tempp = playerC.get(userNames.get(current));
+
                 tempp.add(getCard());
                 playerC.put(userNames.get(current), tempp);
                 draws[current] += 1;
@@ -263,6 +279,16 @@ public class game {
                 message.setCardPlayed("");
                 message.setMessages(messages);
                 isDraw();
+                /*String tempCard;
+                tempCard = playerC.get(userNames.get(current)).get(playerC.get(userNames.get(current)).size() - 1);
+                if(tempCard.charAt(0) == common.charAt(0))
+                {
+                    draw.put(userNames.get(current),false);
+                }
+                else if(tempCard.charAt(1) == common.charAt(1))
+                {
+                    draw.put(userNames.get(current),false);
+                }*/
                 message.setDraw(draw);
             }
             else
@@ -314,6 +340,7 @@ public class game {
                 message.setCardsLeft(cards.size());
                 message.setCardPlayed("");
                 isDraw();
+
                 message.setDraw(draw);
             }
         }
