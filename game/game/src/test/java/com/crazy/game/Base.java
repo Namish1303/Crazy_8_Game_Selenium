@@ -1,4 +1,4 @@
-package com.crazy.game.selenium;
+package com.crazy.game;
 
 import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;

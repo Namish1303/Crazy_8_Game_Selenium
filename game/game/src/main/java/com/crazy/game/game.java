@@ -1,4 +1,4 @@
-package com.crazy.game.rules;
+package com.crazy.game;
 
 import com.crazy.game.Message;
 import org.springframework.stereotype.Component;

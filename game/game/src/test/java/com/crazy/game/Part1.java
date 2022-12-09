@@ -1,10 +1,7 @@
-package com.crazy.game.selenium;
+package com.crazy.game;
 
 
-import com.crazy.game.rules.game;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -20,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-
+@SpringBootTest(properties = {"server.port-8080"}, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @DirtiesContext
 public class Part1 extends Base{
 
@@ -52,7 +49,7 @@ public class Part1 extends Base{
     {
         List<String> temp = new ArrayList<>();
         temp = g.getCards();
-        temp.set(0,"4C");
+        temp.set(20,"4C");
         temp.set(1,"3C");
         temp.set(7,"5D");
         g.setCards(temp);
@@ -60,11 +57,12 @@ public class Part1 extends Base{
         System.out.println(g.getCards().get(1));
 
         //player1.navigate().to("http://localhost:3000");
+        player1.navigate().to("http://localhost:8080");
         player2.navigate().to("http://localhost:8080");
         player3.navigate().to("http://localhost:8080");
         player4.navigate().to("http://localhost:8080");
 
-        player1.get("http://localhost:8080");
+
 
         player1.findElement(By.id("username")).sendKeys("player1");
         player2.findElement(By.id("username")).sendKeys("player2");
@@ -74,23 +72,11 @@ public class Part1 extends Base{
 
 
         player1.findElement(By.id("connect")).click();
-        //player1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-
-
-
         player2.findElement(By.id("connect")).click();
-        //player2.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-
-
-
         player3.findElement(By.id("connect")).click();
-        //player3.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-
-
-
         player4.findElement(By.id("connect")).click();
-        //player4.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
+        
         player1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         player2.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         player3.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
