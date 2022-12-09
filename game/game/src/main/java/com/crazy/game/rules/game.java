@@ -322,7 +322,27 @@ public class game {
     }
 
 
+    public void removeUserCard(String name, String card)
+    {
+        List<String> temp = new ArrayList<>();
+        temp = playerC.get(name);
 
+        int rem= temp.indexOf(card);
+        temp.remove(rem);
+
+        playerC.put(name,temp);
+    }
+
+    public List<String> get5cards()
+    {
+        List<String> temp = new ArrayList<>();
+        for(int i=0;i<5;i++)
+        {
+            temp.add(cards.remove(0));
+
+        }
+        return temp;
+    }
 
     public void calculateScore()
     {
