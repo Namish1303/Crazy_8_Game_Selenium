@@ -227,7 +227,9 @@ public class game {
                 String name = gameOver();
                 if(name.equals("none")) {
                     message.setStatus("OVER");
-
+                    round += 1;
+                    assignCards();
+                    Collections.shuffle(cards);
                     message.setUsers(users);
                     userNum=0;
                 }
@@ -268,7 +270,9 @@ public class game {
                 String name = gameOver();
                 if(name.equals("none")) {
                     message.setStatus("OVER");
-
+                    round += 1;
+                    assignCards();
+                    Collections.shuffle(cards);
                     message.setUsers(users);
                     userNum=0;
                 }
@@ -346,7 +350,10 @@ public class game {
                 String name = gameOver();
                 if(name.equals("none")) {
                     message.setStatus("OVER");
-
+                    round += 1;
+                    assignCards();
+                    Collections.shuffle(cards);
+                    System.out.println("ROUND: "+round);
                     message.setUsers(users);
                     userNum=0;
                 }
@@ -367,12 +374,14 @@ public class game {
             if(userNum <3)
             {
                 userNum +=1;
+
             }
             else
             {
-                assignCards();
-                Collections.shuffle(cards);
-                current =0;
+
+
+                current = (round-1)%4;
+                System.out.println(current);
                 direction = 1;
                 message.setStatus("START");
                 message.setMessages(messages);
