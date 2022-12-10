@@ -98,6 +98,10 @@ public class game {
         this.playerC = playerC;
     }
 
+    public Map<String, List<String>> getPlayerC() {
+        return playerC;
+    }
+
     public Message manage(Message message)
     {
        //refresh messages before every chance
@@ -110,6 +114,7 @@ public class game {
             users.put(message.getUser(),scores[userNum]);
             userNames.add(message.getUser());
             messages.put(message.getUser(),"");
+            playerC.put(message.getUser(),get5cards());
             draw.put(message.getUser(),false);
             userNum +=1;
             message.setStatus("WAIT");
@@ -130,11 +135,11 @@ public class game {
             messages.put(message.getUser(),"");
             draw.put(message.getUser(),false);
             userNum +=1;
-
-            for(int i=0;i<userNames.size();i++)
+            playerC.put(message.getUser(),get5cards());
+            /*for(int i=0;i<userNames.size();i++)
             {
                 playerC.put(userNames.get(i),get5cards());
-            }
+            }*/
 
             message.setPlayerTurn(userNames.get(current));
             common = getCard();
