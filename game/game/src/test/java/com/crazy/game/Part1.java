@@ -6,7 +6,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,14 +16,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+
 
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
+
 
 @SpringBootTest(properties = {"server.port-8080"}, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @DirtiesContext
@@ -44,13 +43,13 @@ public class Part1 extends Base{
 
 
     @BeforeEach
-    void start()
+    public void start()
     {
 
     }
 
     @Test
-    void Row41()
+    public void Row41()
     {
         List<String> temp = new ArrayList<>();
         temp = g.getCards();
@@ -94,7 +93,7 @@ public class Part1 extends Base{
     }
 
     @Test
-    void Row42()
+    public void Row42()
     {
         List<String> temp = new ArrayList<>();
         temp = g.getCards();
@@ -854,7 +853,7 @@ public class Part1 extends Base{
     }
 
     @AfterEach
-    void end()
+    public void end()
     {
         player1.close();
         player2.close();
