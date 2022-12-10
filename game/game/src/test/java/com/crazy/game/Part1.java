@@ -723,14 +723,14 @@ public class Part1 extends Base{
         Assertions.assertTrue(player1.findElement(By.id("4H")).isEnabled());
         player1.findElement(By.id("draw")).click();
 
-        //Assertions.assertFalse(player1.findElement(By.id("draw")).isEnabled());
-        //Assertions.assertEquals(player1.findElement(By.className("serverMessage")).getText(),"Message from Server: 3 Draws done");
-        //Assertions.assertTrue(player2.findElement(By.id("7D")).isEnabled());
+        Assertions.assertFalse(player1.findElement(By.id("draw")).isEnabled());
+        Assertions.assertEquals(player1.findElement(By.className("serverMessage")).getText(),"Message from Server: 3 Draws done");
+        Assertions.assertTrue(player2.findElement(By.id("7D")).isEnabled());
     }
 
 
 
-    //@AfterEach
+    @AfterEach
     void end()
     {
         player1.close();
