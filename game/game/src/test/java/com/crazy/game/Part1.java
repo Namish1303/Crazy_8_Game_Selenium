@@ -226,6 +226,7 @@ public class Part1 extends Base{
         player4.findElement(By.id("3C")).click();
 
         Assertions.assertTrue(player1.findElement(By.id("9H")).isEnabled());
+        g.reset();
     }
 
     @Test
@@ -279,6 +280,7 @@ public class Part1 extends Base{
         player3.findElement(By.id("7H")).click();
 
         Assertions.assertTrue(player2.findElement(By.id("9C")).isEnabled());
+        g.reset();
 
     }
 
@@ -329,6 +331,7 @@ public class Part1 extends Base{
         player4.findElement(By.id("QC")).click();
 
         Assertions.assertTrue(player2.findElement(By.id("9C")).isEnabled());
+        g.reset();
     }
 
 
@@ -376,6 +379,7 @@ public class Part1 extends Base{
         player1.findElement(By.id("KH")).click();
         Assertions.assertEquals(player2.findElement(By.id("common")).getText(),"KH");
         Assertions.assertTrue(player2.findElement(By.id("KD")).isEnabled());
+        g.reset();
     }
 
 
@@ -418,6 +422,7 @@ public class Part1 extends Base{
         player1.findElement(By.id("7C")).click();
         Assertions.assertEquals(player2.findElement(By.id("common")).getText(),"7C");
         Assertions.assertTrue(player2.findElement(By.id("9C")).isEnabled());
+        g.reset();
     }
 
     @Test
@@ -460,6 +465,7 @@ public class Part1 extends Base{
         //Assertions.assertEquals(player2.findElement(By.id("common")).getText(),"7C");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("suiteSelect")));
         Assertions.assertTrue(player1.findElement(By.id("suiteSelect")).isEnabled());
+        g.reset();
     }
 
 
@@ -502,6 +508,7 @@ public class Part1 extends Base{
         player1.findElement(By.id("5S")).click();
         //Assertions.assertEquals(player2.findElement(By.id("common")).getText(),"7C");
         Assertions.assertEquals(player1.findElement(By.className("serverMessage")).getText(),"Message from Server: Play a Valid Card");
+        g.reset();
     }
 
 
@@ -556,7 +563,7 @@ public class Part1 extends Base{
         player1.findElement(By.id("draw")).click();
         Assertions.assertFalse(player1.findElement(By.id("draw")).isEnabled());
         Assertions.assertFalse(player2.findElement(By.id("7H")).isEnabled());
-
+        g.reset();
     }
 
     @Test
@@ -609,6 +616,7 @@ public class Part1 extends Base{
         Assertions.assertTrue(player1.findElement(By.id("5C")).isEnabled());
         Assertions.assertFalse(player1.findElement(By.id("draw")).isEnabled());
         Assertions.assertFalse(player2.findElement(By.id("7H")).isEnabled());
+        g.reset();
     }
 
     @Test
@@ -666,6 +674,7 @@ public class Part1 extends Base{
 
         Assertions.assertFalse(player1.findElement(By.id("draw")).isEnabled());
         Assertions.assertFalse(player2.findElement(By.id("7D")).isEnabled());
+        g.reset();
     }
 
 
@@ -726,6 +735,7 @@ public class Part1 extends Base{
         Assertions.assertFalse(player1.findElement(By.id("draw")).isEnabled());
         Assertions.assertEquals(player1.findElement(By.className("serverMessage")).getText(),"Message from Server: 3 Draws done");
         Assertions.assertTrue(player2.findElement(By.id("7D")).isEnabled());
+        g.reset();
     }
 
 
@@ -785,7 +795,7 @@ public class Part1 extends Base{
         Assertions.assertTrue(player1.findElement(By.id("suiteSelect")).isEnabled());
 
 
-
+        g.reset();
     }
 
     @Test
@@ -838,6 +848,7 @@ public class Part1 extends Base{
         Assertions.assertTrue(player1.findElement(By.id("6C")).isEnabled());
         Assertions.assertFalse(player2.findElement(By.id("7D")).isEnabled());
 
+        g.reset();
     }
 
     @AfterEach

@@ -284,7 +284,7 @@ const CrazyEight =() =>{
           <li id={value}>{value} : {players[value]}</li>)}
 
           </ul>
-        <h3> Winner:  {winner}</h3>
+        <h3 id="winner"> Winner:  {winner}</h3>
       </div>
       
       
