@@ -315,6 +315,7 @@ public class game {
                 messages.put(userNames.get(current),"3 Draws done");
                 draws[current]=0;
                 increaseCurrent();
+                isDraw();
             }
             if(!isRoundOver())
             {
