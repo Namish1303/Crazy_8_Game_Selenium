@@ -729,6 +729,66 @@ public class Part1 extends Base{
     }
 
 
+    @Test
+    public void Row62()
+    {
+        List<String> temp = new ArrayList<>();
+        temp = g.getCards();
+        temp.set(20,"7C");
+        temp.set(21,"6D");
+        temp.set(22,"8H");
+        temp.set(23,"4H");
+        temp.set(6,"7D");
+
+        g.setCards(temp);
+
+        WebDriverManager.chromedriver().setup();
+        player1 = new ChromeDriver();
+        player1.navigate().to("http://localhost:8080");
+        player1.findElement(By.id("username")).sendKeys("player1");
+        player1.findElement(By.id("connect")).click();
+
+        player2 = new ChromeDriver();
+        player2.navigate().to("http://localhost:8080");
+        player2.findElement(By.id("username")).sendKeys("player2");
+        player2.findElement(By.id("connect")).click();
+
+        List<String> one = new ArrayList<>();
+        Map<String,List<String>> temp2 = new HashMap<>();
+        one.add("3H");
+        temp2.put("player1",one);
+        g.setPlayerC(temp2);
+
+        player3 = new ChromeDriver();
+        player3.navigate().to("http://localhost:8080");
+        player3.findElement(By.id("username")).sendKeys("player3");
+        player3.findElement(By.id("connect")).click();
+
+        //System.out.println("\n\n\n\n\n"+g.getPlayerC().get("player1"));
+        player4 = new ChromeDriver();
+        player4.navigate().to("http://localhost:8080");
+        player4.findElement(By.id("username")).sendKeys("player4");
+        player4.findElement(By.id("connect")).click();
+
+        WebDriverWait wait = new WebDriverWait(player1, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("3H")));
+
+
+        player1.findElement(By.id("draw")).click();
+        Assertions.assertTrue(player1.findElement(By.id("draw")).isEnabled());
+        player1.findElement(By.id("draw")).click();
+        Assertions.assertTrue(player1.findElement(By.id("8H")).isEnabled());
+        Assertions.assertFalse(player1.findElement(By.id("draw")).isEnabled());
+        player1.findElement(By.id("8H")).click();
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("suiteSelect")));
+        Assertions.assertTrue(player1.findElement(By.id("suiteSelect")).isEnabled());
+
+
+
+    }
+
+    
 
     @AfterEach
     void end()
